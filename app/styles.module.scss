@@ -54,3 +54,19 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .footerContainer {
+    .footer {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footerContainer {
+    .footer {
+      grid-template-columns: 1fr;
+    }
+  }
+}
