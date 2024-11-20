@@ -1,0 +1,13 @@
+$primary-accent: #01B286;
+$secondary-accent: #EBF9F5;
+$primary-text: #44475A;
+$secondary-text: #7B7E8C;
+$border-gray: #E9E9EB;
+ 
+:export {
+  $primary-accent: $primary-accent;
+  $secondary-accent: $secondary-accent;
+  $primary-text: $primary-text;
+  $secondary-text: $secondary-text;
+  border-gray: $border-gray;
+}

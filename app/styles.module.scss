@@ -1,0 +1,29 @@
+@import './styleVariables/styles.module.scss';
+
+.headerContainer {
+  height: 5rem;
+  border-bottom: 1px solid $border-gray;
+  .header {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $primary-text;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    font-weight: 900;
+  }
+}
+
+.sectionContainer {
+  min-height: calc(100vh - 5rem);
+  .section {
+    height: 100%;
+    color: $primary-text;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+  }
+}
