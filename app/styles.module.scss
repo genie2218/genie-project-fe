@@ -28,9 +28,29 @@
   }
 }
 
-.footer {
+.footerContainer {
   background-color: $primary-accent;
   color: white;
-  height: 40vh;
   margin-top: 10rem;
+  padding: 1rem;
+
+  .footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    h2 {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+
+    hr {
+      margin: 2rem 0;
+    }
+
+    ul > li {
+      font-size: 0.8rem;
+      list-style-type: none;
+    }
+  }
 }

@@ -7,6 +7,8 @@ import Link from 'next/link';
 const PriceDiscovery = () => {
   return (
     <>
+      <img className={styles.leftBackground} src='/background.svg' />
+      <img className={styles.rightBackground} src='/background.svg' />
       <div className={styles.heroText}>
         <h1>Finding you <span className={styles.accent}>Dream Home</span><br/>Made Simple
         with Genie!</h1>
