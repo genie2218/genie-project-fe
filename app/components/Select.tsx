@@ -2,7 +2,6 @@
 "use client"
 import { useState } from 'react';
 import styles from './styles.module.scss';
-import { DownOutlined, CheckOutlined } from '@ant-design/icons';
 
 interface ISelect {
   label: string,
@@ -32,7 +31,7 @@ const Select = ({ label, options=[], onChange, defaultValue }: ISelect) => {
       <div className={styles.select} role="button">
         <div className={styles.selected} onClick={() => toggleOptionsVisibility(!optionsVisiblity)}>
           {selectedOption.label || 'Select a type'}
-          <DownOutlined />  
+          V 
         </div>
         {
           optionsVisiblity && (
@@ -40,7 +39,7 @@ const Select = ({ label, options=[], onChange, defaultValue }: ISelect) => {
               {
                 options.map((o: any) => (
                   <div key={o.value} className={styles.option} onClick={() => handleSelect(o)}>
-                    {o.label} {selectedOption.value === o.value && <CheckOutlined />}
+                    {o.label} {selectedOption.value === o.value && '_/'}
                   </div>
                 ))
               }
