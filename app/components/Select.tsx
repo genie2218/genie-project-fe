@@ -38,7 +38,7 @@ const Select = ({ label, options=[], onChange, defaultValue }: ISelect) => {
           optionsVisiblity && (
             <div className={styles.options}>
               {
-                options.map(o => (
+                options.map((o: any) => (
                   <div key={o.value} className={styles.option} onClick={() => handleSelect(o)}>
                     {o.label} {selectedOption.value === o.value && <CheckOutlined />}
                   </div>
