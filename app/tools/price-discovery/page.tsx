@@ -2,16 +2,17 @@ import Input from '@/app/components/Input';
 import styles from './styles.module.scss';
 import Select from '@/app/components/Select';
 import Button from '@/app/components/Button';
+import Link from 'next/link';
 
 const PriceDiscovery = () => {
   return (
     <>
-    <div className={styles.heroText}>
-      <h1>Finding you <span className={styles.accent}>Dream Home</span><br/>Made Simple
-      with Genie!</h1>
-      <Button label='Try the tool' />
-    </div>
-      <div className={styles.toolContainer}>
+      <div className={styles.heroText}>
+        <h1>Finding you <span className={styles.accent}>Dream Home</span><br/>Made Simple
+        with Genie!</h1>
+        <Link href="#tool"><Button label='Try the tool' /></Link>
+      </div>
+      <div id="tool" className={styles.toolContainer}>
         <div className={styles.headingContainer}>
           <p className={styles.heading}>Price Discovery Calculator</p>
           <p className={styles.subHeading}>Find the dream home in your budget</p>
