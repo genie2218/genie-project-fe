@@ -1,5 +1,22 @@
 @import '../../styleVariables/styles.module.scss';
 
+.leftBackground {
+  position: absolute;
+  top: 9rem;
+  left: 0;
+  width: 20vw;
+  opacity: 0.4;
+}
+
+.rightBackground {
+  position: absolute;
+  top: 6rem;
+  right: 0;
+  width: 20vw;
+  opacity: 0.4;
+  transform: rotateY(180deg);
+}
+
 .heroText {
   font-size: clamp(1rem, 3vw, 40px);
   width: 90%;
@@ -11,6 +28,7 @@
   gap: 1rem;
   margin: 0 auto;
   text-align: center;
+  position: relative;
 
   .accent {
     color: $primary-accent;
