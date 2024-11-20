@@ -1,0 +1,110 @@
+@import '../styleVariables/styles.module.scss';
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.8rem;
+
+  button {
+    border: none;
+    outline: none;
+    background-color: $primary-accent;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin: 1rem 0;
+  }
+
+  .input {
+    border: 1px solid $border-gray;
+    width: 100%;
+    border-radius: 0.2rem;
+    overflow: hidden;
+    display: flex;
+
+    .prefixText {
+      background-color: $primary-accent;
+      color: white;
+      padding: 0.8rem;
+      width: 30%;
+      display: inline-block;
+      text-align: center;
+    }
+    
+    input {
+      padding: 0.8rem;
+      border: none;
+      outline: none;
+      flex: auto;
+    }
+
+    .suffixText {
+      background-color: $primary-accent;
+      color: white;
+      padding: 0.8rem;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+}
+
+.selectContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.8rem;
+
+  .select {
+    width: 100%;
+    height: 100%;
+    padding: 0.8rem;
+    color: $primary-text;
+    box-sizing: border-box;
+    align-content: center;
+    position: relative;
+    border: 1px solid $border-gray;
+    border-radius: 0.2rem;
+  
+    .selected {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      height: 100%;
+    }
+  
+    .options {
+      cursor: pointer;
+      position: absolute;
+      bottom: -10px;
+      right: 0;
+      transform: translateY(100%);
+      width: 100%;
+      border: 1px solid $border-gray;
+      border-radius: 0.2rem;
+      background-color: white;
+      min-height: 2rem;
+      z-index: 100;
+  
+      .option {
+        padding: 0.7rem;
+        margin: 0.4rem;
+        border-radius: 0.2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+  
+        &:hover {
+          background-color: $secondary-accent;
+        }
+      }
+    }
+  }
+}
