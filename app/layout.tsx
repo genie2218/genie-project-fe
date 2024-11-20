@@ -32,6 +32,8 @@ export default function RootLayout({
             {children}
           </div>
         </section>
+        <footer className={styles.footer}>
+        </footer>
       </body>
     </html>
   );
