@@ -12,7 +12,7 @@ enum STEP {
 }
 
 const PriceDiscoveryTool = () => {
-  const [step, setStep] = useState(STEP.RESULT);
+  const [step, setStep] = useState(STEP.INPUT);
   
   const handleChange = () => {
     if (step === STEP.RESULT) {
