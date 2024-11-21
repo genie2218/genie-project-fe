@@ -34,7 +34,7 @@ export default function RootLayout({
         </section>
         <footer className={styles.footerContainer}>
           <div className={styles.footer}>
-            <div className="col-md-3 col-sm-6">
+            <div className={styles.column}>
               <div
                 id="block-26"
                 className="footer-widget widget widget-wrap widget_block"
@@ -116,7 +116,7 @@ export default function RootLayout({
                 </p>
               </div>
             </div>
-            <div className="col-md-3 col-sm-6">
+            <div className={styles.column}>
               <div
                 id="block-14"
                 className="footer-widget widget widget-wrap widget_block"
@@ -168,7 +168,7 @@ export default function RootLayout({
                 <p />
               </div>
             </div>
-            <div className="col-md-3 col-sm-6">
+            <div className={styles.column}>
               <div
                 id="block-24"
                 className="footer-widget widget widget-wrap widget_block"
@@ -271,7 +271,7 @@ export default function RootLayout({
                 <p />
               </div>
             </div>
-            <div className="col-md-3 col-sm-6">
+            <div className={styles.column}>
               <div
                 id="block-27"
                 className="footer-widget widget widget-wrap widget_block"
