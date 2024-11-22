@@ -58,7 +58,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  min-height: 115vh;
+  min-height: 940px;
   height: 100vh;
 
   .inputDetails {
@@ -139,4 +139,14 @@
       padding-top: 1rem;
     }
   }
+}
+
+.error {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: rgb(194, 48, 48);
+}
+
+.noData {
+  padding: 4rem 0;
 }

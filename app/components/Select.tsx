@@ -6,12 +6,12 @@ import styles from './styles.module.scss';
 interface ISelect {
   label: string,
   options: any,
-  onChange: any,
-  defaultValue: any,
+  onChange: (param: any) => void,
+  value: any,
 }
 
-const Select = ({ label, options=[], onChange, defaultValue }: ISelect) => {
-  const [selectedOption, setSelectedOption] = useState(defaultValue || {});
+const Select = ({ label, options=[], onChange, value }: ISelect) => {
+  const [selectedOption, setSelectedOption] = useState(value || {});
   const [optionsVisiblity, toggleOptionsVisibility] = useState(false);
 
   const handleSelect = (option: any) => {
@@ -21,8 +21,7 @@ const Select = ({ label, options=[], onChange, defaultValue }: ISelect) => {
       return;
     }
     setSelectedOption(option)
-    // onChange && onChange(option);
-    console.log(onChange);
+    onChange && onChange(option);
   }
   
   return (
@@ -31,7 +30,7 @@ const Select = ({ label, options=[], onChange, defaultValue }: ISelect) => {
       <div className={styles.select} role="button">
         <div className={styles.selected} onClick={() => toggleOptionsVisibility(!optionsVisiblity)}>
           {selectedOption.label || 'Select a type'}
-          V 
+          {/* V  */}
         </div>
         {
           optionsVisiblity && (
@@ -39,7 +38,7 @@ const Select = ({ label, options=[], onChange, defaultValue }: ISelect) => {
               {
                 options.map((o: any) => (
                   <div key={o.value} className={styles.option} onClick={() => handleSelect(o)}>
-                    {o.label} {selectedOption.value === o.value && '_/'}
+                    {o.label} {selectedOption.value === o.value && ''}
                   </div>
                 ))
               }

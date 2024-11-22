@@ -11,17 +11,76 @@ enum STEP {
   'LOADING'
 }
 
+interface IFormData {
+  builder: any,
+  floor: any,
+  minSize: number,
+  maxSize: number,
+  minBudget: number,
+  maxBudget: number,
+}
+
 const PriceDiscoveryTool = () => {
   const [step, setStep] = useState(STEP.INPUT);
+  const [error, setError] = useState('');
+  const [formData, setFormData] = useState<IFormData>({
+    builder: '',
+    floor: '',
+    minSize: 0,
+    maxSize: 0,
+    minBudget: 0,
+    maxBudget: 0,
+  });
+  const [results, setResults] = useState([]);
+
+  const handleFormUpdate = (key: string, value: any) => {
+    setError('');
+    setFormData(prevFormData => (
+      {
+        ...prevFormData,
+        [key]: value,
+      }
+    ))
+  }
   
   const handleChange = () => {
     if (step === STEP.RESULT) {
       setStep(STEP.INPUT);
     } else if (step === STEP.INPUT) {
       setStep(STEP.LOADING);
-      setTimeout(() => {
+      if (
+        formData?.minBudget > formData?.maxBudget || 
+        formData?.minSize > formData?.maxSize ||
+        formData?.minBudget < 0 ||
+        formData?.maxBudget < 0 ||
+        formData?.minSize < 0 ||
+        formData?.maxSize < 0 ||
+        !formData?.floor ||
+        !formData?.builder
+      ) {
+        setError('Please fill all the details correctly');
+        setStep(STEP.INPUT);
+        return;
+      }
+      fetch('https://genie-service-latest.onrender.com/genieservice/api/calculator/getDataBasedOnFilters', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: new Headers({'content-type': 'application/json'}),
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (!res.localities) {
+          setError('Some error occured. Please try again later');
+          setStep(STEP.INPUT);
+          return;
+        }
+        setResults(res);
         setStep(STEP.RESULT);
-      }, 4000);
+      })
+      .catch(err => {
+        setError('Some error occured. Please try again later');
+        setStep(STEP.INPUT);
+      });
     }
   }
 
@@ -31,6 +90,9 @@ const PriceDiscoveryTool = () => {
         heading="Price Discovery Calculator"
         subHeading="Find the dream home in your budget"
         handleChange={handleChange}
+        handleFormUpdate={handleFormUpdate}
+        error={error}
+        formData={formData}
       />
     )
   
@@ -40,6 +102,7 @@ const PriceDiscoveryTool = () => {
         heading="Estimated localities mathing your budget"
         subHeading="Find the best locality for your budget"
         handleChange={handleChange}
+        results={results}
       />
     )
   

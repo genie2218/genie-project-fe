@@ -5,6 +5,8 @@ interface IInputProps {
   label: string,
   prefixText?: string,
   suffixText?: string,
+  onChange: (param: any) => void,
+  value: any,
 }
 
 const Input = (props: IInputProps) => {
@@ -12,6 +14,8 @@ const Input = (props: IInputProps) => {
     label,
     prefixText,
     suffixText,
+    onChange,
+    value,
   } = props;
 
   return (
@@ -19,7 +23,7 @@ const Input = (props: IInputProps) => {
       <span>{label}</span>
       <div className={styles.input}>
         {prefixText && <span className={styles.prefixText}>{prefixText}</span>}
-        <input />
+        <input type="number" min={0} onChange={(e) => onChange(e?.target?.value)} value={value} />
         {suffixText && <span className={styles.suffixText}>{suffixText}</span>}
       </div>
     </div>
