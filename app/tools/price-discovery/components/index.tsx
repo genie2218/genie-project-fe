@@ -50,13 +50,7 @@ const PriceDiscoveryTool = () => {
       setStep(STEP.LOADING);
       if (
         formData?.minBudget > formData?.maxBudget || 
-        formData?.minSize > formData?.maxSize ||
-        formData?.minBudget < 0 ||
-        formData?.maxBudget < 0 ||
-        formData?.minSize < 0 ||
-        formData?.maxSize < 0 ||
-        !formData?.floor ||
-        !formData?.builder
+        formData?.minSize > formData?.maxSize
       ) {
         setError('Please fill all the details correctly');
         setStep(STEP.INPUT);
@@ -64,7 +58,14 @@ const PriceDiscoveryTool = () => {
       }
       fetch('https://genie-service-latest.onrender.com/genieservice/api/calculator/getDataBasedOnFilters', {
         method: 'POST',
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          builder: formData?.builder || null,
+          floor: formData?.floor || null,
+          maxBudget: formData?.maxBudget || null,
+          maxSize:  formData?.maxSize || null,
+          minBudget: formData?.minBudget || null,
+          minSize: formData?.minSize || null,
+        }),
         headers: new Headers({'content-type': 'application/json'}),
       })
       .then(res => res.json())
