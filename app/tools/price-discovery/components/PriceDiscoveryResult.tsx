@@ -58,8 +58,8 @@ const PriceDiscoveryResult = (props: IPriceDiscoveryResult) => {
                 <tr>
                   <td>{l?.localityName}</td>
                   <td>{l?.plotSizes}</td>
-                  <td>{Math.min(l?.realSale, l?.optSale)}</td>
-                  <td>{Math.max(l?.realSale, l?.optSale)}</td>
+                  <td>{l?.minPrice}</td>
+                  <td>{l?.maxPrice}</td>
                 </tr>
               ))
             }

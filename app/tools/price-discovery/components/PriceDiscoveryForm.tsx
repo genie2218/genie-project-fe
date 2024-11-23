@@ -51,15 +51,21 @@ const PriceDiscoveryForm = (props: IPriceDiscoveryForm) => {
             <p>{heading}</p>
             <p className={styles.subHeading}>{subHeading}</p>
           </div>
-        </div>
+      </div>
+      <div className={styles.inputRow}>
         <Select label='Builder Type' options={options?.builder} onChange={(val) => handleFormUpdate('builder', val)} value={formData?.builder} />
         <Select label='Floor' options={options?.floor} onChange={(val) => handleFormUpdate('floor', val)} value={formData?.floor} />
-        <Input label='Min Size' suffixText='sq. yards' onChange={(val) => handleFormUpdate('minSize', val)} value={formData?.minSize} />
-        <Input label='Max Size' suffixText='sq. yards' onChange={(val) => handleFormUpdate('maxSize', val)} value={formData?.maxSize} />
-        <Input label='Min Budget' prefixText='₹ (in crores)' onChange={(val) => handleFormUpdate('minBudget', val)} value={formData?.minBudget} />
-        <Input label='Max Budget' prefixText='₹ (in crores)' onChange={(val) => handleFormUpdate('maxBudget', val)} value={formData?.maxBudget} />
-        <Button label='Fetch Localities' onClick={handleChange} />
-        <p className={styles.error}><center>{error}</center></p>
+      </div>
+      <div className={styles.inputRow}>
+        <Input label='Min Size' suffixText='sqyd' onChange={(val) => handleFormUpdate('minSize', val)} value={formData?.minSize} />
+        <Input label='Max Size' suffixText='sqyd' onChange={(val) => handleFormUpdate('maxSize', val)} value={formData?.maxSize} />
+      </div>
+      <div className={styles.inputRow}>
+        <Input label='Min Budget' prefixText='₹ (in cr)' onChange={(val) => handleFormUpdate('minBudget', val)} value={formData?.minBudget} />
+        <Input label='Max Budget' prefixText='₹ (in cr)' onChange={(val) => handleFormUpdate('maxBudget', val)} value={formData?.maxBudget} />
+      </div>
+      <Button label='Fetch Localities' onClick={handleChange} />
+      <p className={styles.error}><center>{error}</center></p>
     </>
   )
 }
