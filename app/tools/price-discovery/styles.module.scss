@@ -101,7 +101,7 @@
   }
 
   .results {
-    height: 300px;
+    height: clamp(300px, 60vh, 700px);
     overflow-y: auto;
     position: relative;
 

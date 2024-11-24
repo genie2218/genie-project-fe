@@ -30,19 +30,19 @@ const PriceDiscoveryResult = (props: IPriceDiscoveryResult) => {
         <span className={styles.edit} onClick={handleChange}>EDIT</span>
         <div className={styles.detail}>
           <h4>{`Area (in sq. yards)`}</h4>
-          <p>{results?.minSize} to {results?.maxSize}</p>
+          <p>{!results?.minSize && !results?.maxSize && '--'}{results?.minSize} {results.minSize && results?.maxSize && 'to'} {results?.maxSize}</p>
         </div>
         <div className={styles.detail}>
           <h4>{`Budget (in crores)`}</h4>
-          <p>₹{results?.minBudget}cr to ₹{results?.maxBudget}cr</p>
+          <p>{!results?.minBudget && !results?.maxBudget && '--'}{results?.minBudget && `₹${results?.minBudget}cr`} {results?.minBudget && results?.maxBudget && 'to'} {results?.maxBudget && `₹${results?.maxBudget}cr`}</p>
         </div>
         <div className={styles.detail}>
           <h4>{`Builder Type`}</h4>
-          <p>{results?.builder?.label}</p>
+          <p>{results?.builder?.label || '--'}</p>
         </div>
         <div className={styles.detail}>
           <h4>{`Floor Preference`}</h4>
-          <p>{results?.floor?.label}</p>
+          <p>{results?.floor?.label || '--'}</p>
         </div>
       </div>
       <div className={styles.results}>
